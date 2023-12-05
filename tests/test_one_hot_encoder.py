@@ -1,5 +1,5 @@
 import unittest
-from src.onehot import OneHotEncoder
+from vencoder.onehot import OneHotEncoder
 from testdata import *
 
 

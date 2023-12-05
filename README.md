@@ -18,10 +18,13 @@ The standard in the field is to encode each reference nucletide as a length four
 
 For example, `A` gets encoded as `[1, 0, 0, 0]`, `C` gets encoded as `[0, 1, 0, 0]`, `G` as `[0, 0, 1, 0]` and `T` as `[0, 0, 0, 1]`. There's nothing special about this ordering. This captures the lion's share of genomic information (since most positions are 0/0 indicating homozygous reference). But it of course disregards any variants: 0/1, 1/1, or 1/2.
 
-We implement a one-hot encoder.
+We implement a one-hot encoder. Demo data encodings are found below.
+
+![One-hot encoding](demo/toy_data_one_hot_encoding.png)
+
 
 # Variant
 
 The variant encoding scheme is shown below.
 
-![Variant encoding](scripts/encoding.png)
+![Variant encoding](demo/toy_data_variant_encoding.png)
