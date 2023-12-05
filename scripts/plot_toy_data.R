@@ -33,4 +33,5 @@ p <- df.2 %>%
         panel.background = element_blank())
 
 
-cowplot::save_plot(plot = p, "encoding.png")
+cowplot::save_plot(plot = p, "encoding.png",
+                   base_height = 8, base_width = 6)
