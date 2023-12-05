@@ -9,17 +9,12 @@ ohe_dict = {
 }
 
 class OneHotEncoder(Encoder):
-    '''Standard method of 
+    '''Standard method of encoding nucleotides
 
     '''
 
-    def encode_nucleotide(self, nt):
+    def encode_single_nucleotide(self, variant_call):
+        # Only care about the first letter
+        nt = variant_call[0]
         return(ohe_dict.get(nt, [0, 0, 0, 0]))
 
-    def encode_data(self):
-
-        out = []
-        for x in self.ref_seq:
-            out.append(self.encode_nucleotide(x))
-        
-        self.encoded_tensor = out
