@@ -14,11 +14,9 @@ Suppose you have some reference sequence (`A,A,C,C,G,G,T,T...`) and a list of va
 
 # One-hot Encoding
 
-The standard in the field is to encode each reference nucletide as a length four vector with a one in the 
+The standard in the field is to encode each reference nucletide as a length four vector with a one corresponding to the reference nucleotide. For example, `A` gets encoded as `[1, 0, 0, 0]`, `C` gets encoded as `[0, 1, 0, 0]`, `G` as `[0, 0, 1, 0]` and `T` as `[0, 0, 0, 1]`. There's nothing special about this ordering. This captures the lion's share of genomic information (since most positions are 0/0 indicating homozygous reference). But it of course disregards any variants: 0/1, 1/1, or 1/2.
 
-For example, `A` gets encoded as `[1, 0, 0, 0]`, `C` gets encoded as `[0, 1, 0, 0]`, `G` as `[0, 0, 1, 0]` and `T` as `[0, 0, 0, 1]`. There's nothing special about this ordering. This captures the lion's share of genomic information (since most positions are 0/0 indicating homozygous reference). But it of course disregards any variants: 0/1, 1/1, or 1/2.
-
-We implement a one-hot encoder. Demo data encodings are found below.
+We implement a one-hot encoder here. Note that it only uses information from the reference genome (i.e. it will not one-hot encode a homoyzgous alternate allele). Demo data encodings are found below.
 
 ![One-hot encoding](demo/toy_data_one_hot_encoding.png)
 
@@ -28,3 +26,9 @@ We implement a one-hot encoder. Demo data encodings are found below.
 The variant encoding scheme is shown below.
 
 ![Variant encoding](demo/toy_data_variant_encoding.png)
+
+# Additive / Masking
+
+Finally, we consider a second layer of information captured by a variant mask where each row is filled with the number of alternate aleles at the corresponding position. This is similar to the "additive model" in statistical genetics. Information encoded by this scheme disregards the actual nucleotide sequence and instead retains information on whether a position is homozygous reference or not.
+
+![SNV masked encoding](demo/toy_data_mask_encoding.png)

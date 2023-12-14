@@ -8,13 +8,13 @@ additive_dict = {
     "1/2": [2, 2, 2, 2]
 }
 
-class AdditiveModelEncoder(Encoder):
+class AdditiveEncoder(Encoder):
     '''
     
     '''
 
     def encode_single_nucleotide(self, variant_call):
-        seq_encoding = additive_dict.get(variant_call, [0,0,0,0])
-        pass
+        vc = variant_call[2]
+        return(additive_dict.get(vc, [0,0,0,0]))
        
         

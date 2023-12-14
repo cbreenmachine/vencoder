@@ -35,7 +35,8 @@ plot_data <- function(df){
     scale_alpha_continuous(range = c(0, 1), guide = "none") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
-          panel.background = element_blank())
+          panel.background = element_blank(),
+          plot.background =  element_rect(color = "white", fill = "white"))
 
 }
 

@@ -1,5 +1,6 @@
 from vencoder.onehot import OneHotEncoder
 from vencoder.variant import VariantEncoder
+from vencoder.additive import AdditiveEncoder
 from pandas import DataFrame, concat
 
 variant_calls = ["0/0", "0/1", "1/1", "1/2"]
@@ -28,6 +29,10 @@ ohe.encode_data()
 variant = VariantEncoder(ref_seq, var_calls)
 variant.encode_data()
 
+# Variant encoder
+mask = AdditiveEncoder(ref_seq, var_calls)
+mask.encode_data()
+
 
 def construct_dataframe(encoding, var_calls):
     '''Helper function to convert outputs to a tidy dataframe'''
@@ -48,6 +53,8 @@ def construct_dataframe(encoding, var_calls):
 
 ohe_df = construct_dataframe(ohe.encoding, var_calls)
 var_df = construct_dataframe(variant.encoding, var_calls)
+mask_df = construct_dataframe(mask.encoding, var_calls)
 
 ohe_df.to_csv("demo/toy_data_one_hot_encoding.csv", index=False)
 var_df.to_csv("demo/toy_data_variant_encoding.csv", index=False)
+mask_df.to_csv("demo/toy_data_mask_encoding.csv", index=False)
