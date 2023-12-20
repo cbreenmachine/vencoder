@@ -21,6 +21,26 @@ class Encoder:
     def encode_single_nucleotide(self, nt):
         pass
 
+
+    def mutate_in_silico(self, pos, window):
+        bix = pos - window
+        eix = pos + window
+
+        subseq = self.reference_sequence[bix, eix]
+        out = []
+
+        for ref_nt in subseq:
+            vc = (ref_nt, ".", "0/0")
+            out.append(self.encode_single_nucleotide(vc))
+
+        mutagen = self.variant_calls[pos]
+        assert mutagen[2] == "1/1", "Need to be homozygous for alternate"
+
+        out[window] = self.encode_single_nucleotide(mutagen)
+        return(out)
+
+
+
     def encode_data(self):
         '''Main logic of sequence encoding. Iterate through the reference sequence 
         and at each position, check if there is a variant call. If there is, encode the
@@ -46,3 +66,8 @@ class Encoder:
 
             out.append(self.encode_single_nucleotide(vc))
         self.encoding = out
+
+    def get_encoding(self):
+        try:
+            return(self.encoding)
+        except V

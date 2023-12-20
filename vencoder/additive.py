@@ -16,5 +16,3 @@ class AdditiveEncoder(Encoder):
     def encode_single_nucleotide(self, variant_call):
         vc = variant_call[2]
         return(additive_dict.get(vc, [0,0,0,0]))
-       
-        
