@@ -66,8 +66,7 @@ class Encoder:
 
             out.append(self.encode_single_nucleotide(vc))
         self.encoding = out
-
+    
     def get_encoding(self):
-        try:
-            return(self.encoding)
-        except V
+        return(self.encoding)
+            
