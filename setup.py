@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='vencoder',
-    version='0.0.1',    
+    version='0.0.2',    
     description='A sequence variant encoder',
     url='https://github.com/cbreenmachine/vencoder',
     author='Coleman Breen',
