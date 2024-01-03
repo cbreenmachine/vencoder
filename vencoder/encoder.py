@@ -22,22 +22,23 @@ class Encoder:
         pass
 
 
-    def mutate_in_silico(self, pos, window):
-        bix = pos - window
-        eix = pos + window
+    # def mutate_in_silico(self, pos, window):
 
-        subseq = self.reference_sequence[bix, eix]
-        out = []
+    #     mutagen = self.variant_calls[pos]
+    #     assert mutagen[2] == "1/1", "Need to be homozygous for alternate"
 
-        for ref_nt in subseq:
-            vc = (ref_nt, ".", "0/0")
-            out.append(self.encode_single_nucleotide(vc))
+    #     bix = pos - window
+    #     eix = pos + window
 
-        mutagen = self.variant_calls[pos]
-        assert mutagen[2] == "1/1", "Need to be homozygous for alternate"
+    #     subseq = self.reference_sequence[bix, eix]
+    #     out = []
 
-        out[window] = self.encode_single_nucleotide(mutagen)
-        return(out)
+    #     for ref_nt in subseq:
+    #         vc = (ref_nt, ".", "0/0")
+    #         out.append(self.encode_single_nucleotide(vc))
+
+    #     out[window] = self.encode_single_nucleotide(mutagen)
+    #     return(out)
 
 
 
